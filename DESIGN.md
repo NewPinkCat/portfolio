@@ -3,12 +3,14 @@ name: CaQuAnh Portfolio
 description: Pixel-brutalist broadcast-desk portfolio — cream paper, 4px ink rules, hard offset shadows, bitmap display type.
 colors:
   paper: "#F5EFE0"
+  paperDeep: "#EDE4CF"
   ink: "#111111"
   yellow: "#FFE14D"
-  red: "#FF4D4D"
-  blue: "#4D79FF"
-  green: "#4DD97A"
-  cyan: "#4DD9FF"
+  yellowSoft: "#F0D97E"
+  red: "#F05B5B"
+  blue: "#6487E8"
+  green: "#63C98A"
+  cyan: "#74C7E3"
 typography:
   display:
     fontFamily: '"Press Start 2P", monospace'
@@ -90,25 +92,31 @@ Bilingual content (Vietnamese + English) flows through one typographic voice; pi
 
 ## Colors
 
-A flat broadcast palette: warm paper and dense ink do all the structural work, while five saturated signal colors act as switch-panel indicator fields.
+A flat broadcast palette tuned for long reading: warm paper and dense ink do all the structural work, while five softened signal colors (≈80% chroma of the original broadcast set) act as switch-panel indicator fields. Full-saturation yellow is rationed to the single loudest moment per viewport; alternating segment grounds give the scroll a resting rhythm.
 
 ### Primary
-- **Signal Yellow** (#FFE14D): the brand's loudest voice. Primary CTAs, the portrait-block ground, highlighted words inline in headlines (`<em>` treatment), large skill tiles, project media panel B, and the offset shadow under segment titles. If something must be noticed first, it is yellow.
+- **Signal Yellow** (#FFE14D): the brand's loudest voice, now rationed. Primary CTAs and highlighted words inline in headlines (`<em>` treatment) only. If something must be noticed first, it is yellow — and nothing else in the viewport competes at this saturation.
+
+### Soft Yellow
+- **Muted Signal Yellow** (#F0D97E): the working yellow. Portrait-block ground, fact tiles, large skill tiles, striped bar fills, and the offset shadow under segment titles. Reads unmistakably as the brand yellow at ~15% lower luminance and chroma.
 
 ### Secondary
-- **Alarm Red** (#FF4D4D): urgency and framing. Top marquee ticker ground, the third nav block's hover state, fact-tile STATUS field, the red text-shadow behind the stacked CAQUANH wordmark, and the shirt in the pixel portrait.
-- **Wire Blue** (#4D79FF): informational fields. Tech-stack tags, the MODE fact tile, and the global focus-visible outline color.
-- **Terminal Green** (#4DD97A): live/positive signals. Status dot ("OPEN TO WORK"), second nav block hover, project media panel C, and the `>_` prompt glyph.
-- **Sky Cyan** (#4DD9FF): cool highlight. First nav block hover, strong-name inline highlight in the intro paragraph, skill-tile hover state, project media panel A, and screen glyphs inside project art.
+- **Alarm Red, dimmed** (#F05B5B): urgency accents only. Third nav block hover, fact-tile STATUS field, the red text-shadow behind the stacked CAQUANH wordmark, and the shirt in the pixel portrait. The top marquee is ink-ground, not red — red no longer appears full-bleed anywhere.
+- **Wire Blue, dimmed** (#6487E8): informational fields. Tech-stack tags, the MODE fact tile, fourth nav block hover, and the global focus-visible outline color.
+- **Terminal Green, dimmed** (#63C98A): live/positive signals. Status dot ("OPEN TO WORK"), second nav block hover, project media panel C, and the `>_` prompt glyph.
+- **Sky Cyan, dimmed** (#74C7E3): cool highlight. First nav block hover, strong-name inline highlight in the intro paragraph, skill-tile hover state, project media panel A, and screen glyphs inside project art.
 
 ### Neutral
 - **Cream Paper** (#F5EFE0): page background and default block fill; inverted-text color on ink grounds (rail role badge, segment titles, colophon).
-- **Ink** (#111111): every border, every hard shadow, all display type, the bottom ticker and colophon grounds, and selection background.
+- **Deep Paper** (#EDE4CF): alternating segment ground (ABOUT, SKILLS). Gives the scroll rhythm without introducing gray.
+- **Ink** (#111111): every border, every hard shadow, all display type, both ticker bands and colophon ground, and selection background.
 
 ### Named Rules
 **The Ink Border Rule.** Every structural element carries a 4px solid #111111 border (chips, tags, and inline highlights use the 3px small variant). An element floating without an ink rule is off-system — the only borderless things in this world are raw text lines.
 
-**The Two Grounds Rule.** Color fields sit on exactly two grounds: paper (light mode blocks) or ink (inverted blocks). A colored field is always paired with ink text; white text does not exist in this system.
+**The Two Grounds Rule.** Color fields sit on exactly two grounds: paper or deep paper (light mode blocks) or ink (inverted blocks). A colored field is always paired with ink text; white text does not exist in this system.
+
+**The One Loud Voice Rule.** Full-saturation Signal Yellow appears only on primary CTAs and inline headline highlights. Every other former instance uses Muted Signal Yellow. No saturated field ever spans a full viewport width.
 
 ## Typography
 
@@ -153,7 +161,7 @@ Depth is structural, not ambient. Every shadow is a hard, unblurred rectangle of
 - **Resting** (`box-shadow: 5px 5px 0 #111111`): nav blocks, skill tiles, fact tiles, portrait block, inline highlighted words. The default object height.
 - **Pressed** (`translate 2–3px + shadow 3px 3px`): hover state across all interactive tiles — the object sinks halfway.
 - **Fully pressed** (`translate 6px + shadow 2px 2px`): button `:active` — nearly flush with the paper.
-- **Title plate** (`box-shadow: 6px 6px 0 #FFE14D, 6px 6px 0 4px #111111`): segment titles cast a double shadow — a yellow block wrapped by an ink outline. The only place a non-ink shadow appears.
+- **Title plate** (`box-shadow: 6px 6px 0 #F0D97E, 6px 6px 0 4px #111111`): segment titles cast a double shadow — a yellow block wrapped by an ink outline. The only place a non-ink shadow appears.
 
 ### Named Rules
 **The Hard Shadow Rule.** Shadows are flat ink rectangles: `X Y 0 #111111`, never blurred, never translucent. Depth changes happen by translating the element and shrinking its shadow together, so total projection stays consistent.
@@ -225,7 +233,7 @@ Selection is ink-on-yellow (`::selection`). Scrollbar is themed: 14px wide, pape
 ### Don't:
 - **Don't** round any corner — border-radius is banned system-wide.
 - **Don't** use gradients, soft/blurred shadows, translucency, or glow — depth is flat ink offsets only.
-- **Don't** introduce new accent colors; the palette is exactly paper, ink, yellow, red, blue, green, cyan.
+- **Don't** introduce new accent colors; the palette is exactly paper, deep paper, ink, yellow, muted yellow, red, blue, green, cyan.
 - **Don't** set body paragraphs or long bilingual copy in pixel fonts — Press Start 2P and Silkscreen are for short loud strings and chrome only.
 - **Don't** ease hover states smoothly or float elements upward on hover; interactions press *into* the page.
 - **Don't** center a conventional hero-plus-card-grid layout; the split rail + marquee desk structure is the identity.
