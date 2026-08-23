@@ -13,19 +13,19 @@ colors:
   cyan: "#74C7E3"
 typography:
   display:
-    fontFamily: '"Press Start 2P", monospace'
+    fontFamily: '"Space Grotesk", sans-serif'
     fontSize: "clamp(1.5rem, 1rem + 2.6vw, 3rem)"
     fontWeight: 400
     lineHeight: 1.45
     letterSpacing: "-0.02em"
   wordmark:
-    fontFamily: '"Press Start 2P", monospace'
+    fontFamily: '"Space Grotesk", sans-serif'
     fontSize: "clamp(1.4rem, 1.2rem + 0.6vw, 1.8rem)"
     fontWeight: 400
     lineHeight: 1.35
     letterSpacing: "-0.03em"
   section-title:
-    fontFamily: '"Press Start 2P", monospace'
+    fontFamily: '"Space Grotesk", sans-serif'
     fontSize: "clamp(1.2rem, 1rem + 1vw, 1.7rem)"
     fontWeight: 400
     letterSpacing: "-0.02em"
@@ -40,31 +40,32 @@ typography:
     fontWeight: 400
     lineHeight: 1.6
 rounded:
-  none: "0"
+  block: "14px"
+  small: "9px"
 components:
   button-primary:
     backgroundColor: "{colors.yellow}"
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.none}"
+    rounded: "{rounded.block}"
     padding: "1rem 1.6rem"
   button-ghost:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.none}"
+    rounded: "{rounded.block}"
     padding: "1rem 1.6rem"
   chip-placeholder:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.yellow}"
     typography: "{typography.label}"
-    rounded: "{rounded.none}"
+    rounded: "{rounded.small}"
     padding: "0.2rem 0.55rem"
   chip-type:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.none}"
+    rounded: "{rounded.small}"
     padding: "0.2rem 0.55rem"
 ---
 
@@ -85,8 +86,8 @@ Bilingual content (Vietnamese + English) flows through one typographic voice; pi
 - 4px solid ink (#111111) border on every structural element — no exceptions
 - Hard, unblurred offset shadows (8px/8px and 5px/5px, always pure ink)
 - Flat color fields only: yellow / red / blue / green / cyan on paper and ink
-- Press Start 2P as display voice; Silkscreen for all labels and chrome
-- Zero border-radius anywhere in the system
+- Space Grotesk 700 as the single display/data voice (wordmark, hero, section titles, block headings, tiles, values); Silkscreen for chrome labels and tickers
+- Softened corner rounding system-wide: 14px on blocks (buttons, cards, tiles, social links, about block), 9px on small elements (chips, tags, nav keys, bar tracks, title plates)
 - Mechanical motion: `steps()` easing everywhere, linear marquees, blinking cursors
 - Pixel-art SVG imagery (`shape-rendering: crispEdges`, `image-rendering: pixelated`)
 
@@ -120,23 +121,24 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 
 ## Typography
 
-**Display Font:** Press Start 2P (fallback: monospace) — loaded from Google Fonts
+**Display Font:** Space Grotesk, weight 700 (fallback: body stack) — loaded from Google Fonts
 **Label/Chrome Font:** Silkscreen, weight 400/700 (fallback: monospace) — loaded from Google Fonts
 **Body Font:** System UI stack (`system-ui, -apple-system, "Segoe UI", sans-serif`)
 
-**Character:** Two pixel voices, one human voice. Press Start 2P shouts the statements that define identity; Silkscreen stamps the operational chrome (buttons, tags, tickers, labels); the system stack quietly carries bilingual reading copy so long Vietnamese sentences stay legible.
+**Character:** One human shout, one pixel whisper. Space Grotesk 700 carries every heading and data label — wordmark, hero statement, section titles, chart labels, project names, skill tiles, fact values, buttons, nav, status line — with uppercase transforms and tight tracking; Silkscreen stamps the operational chrome (tags, tickers, labels); the system stack quietly carries bilingual reading copy so long Vietnamese sentences stay legible.
 
 ### Hierarchy
-- **Wordmark** (Press Start 2P 400, clamp(1.4rem → 1.8rem), line-height 1.35, tracking −0.03em, red 3px offset text-shadow): the stacked CA/QU/ANH identity block in the rail only.
-- **Display** (Press Start 2P 400, clamp(1.5rem → 3rem), line-height 1.45): the two-line hero statement. Single emphasized words get the yellow-bordered-inline-block treatment.
-- **Section Title** (Press Start 2P 400, clamp(1.2rem → 1.7rem)): PROJECTS / SKILLS / CONTACT set as ink-filled blocks with yellow offset shadow and a blinking `_` cursor tick.
-- **Block Titles** (Press Start 2P 400, 1.05rem, line-height 1.5): project names and fact-tile values (.82rem variant).
-- **Skill Tiles** (Press Start 2P 400, three steps: .95rem large / .8rem standard / .68rem small): encodes skill priority through size alone.
+- **Wordmark** (Space Grotesk 700, clamp(1.7rem → 2.3rem), line-height 1.1, tracking −0.02em, uppercase, red 3px offset text-shadow): the stacked CA/QU/ANH identity block in the rail only.
+- **Display** (Space Grotesk 700, clamp(2rem → 4rem), line-height 1.15): the two-line hero statement. Single emphasized words get the yellow-bordered-inline-block treatment.
+- **Section Title** (Space Grotesk 700, clamp(1.5rem → 2.4rem), uppercase): PROJECTS / SKILLS / CONNECT set as ink-filled blocks with yellow-soft offset shadow and a blinking `_` cursor tick.
+- **Chart Labels** (Space Grotesk 700, 1.35rem, uppercase, line-height 1.3): WEB DEVELOPMENT / CYBERSECURITY group headings with chips inline.
+- **Block Titles** (Space Grotesk 700, 1.4rem uppercase): project names; fact-tile values at 1.25rem.
+- **Skill Tiles** (Space Grotesk 700, three steps: 1.35rem large / 1.05rem standard / .9rem small): encodes skill priority through size alone.
 - **Label** (Silkscreen 700, .72–1.05rem, letter-spacing .08–.15em, uppercase): buttons, nav blocks, chips, tech tags, tickers, dt headings, status line, colophon.
 - **Body** (system-ui 400, 1.0625rem, line-height 1.6): default reading copy; intro paragraph at 1.125rem capped at 58ch; section notes capped at 52ch.
 
 ### Named Rules
-**The Two Pixel Voices Rule.** Press Start 2P speaks; Silkscreen labels. Never use Press Start 2P below .8rem or Silkscreen for headline statements — each face has exactly one job.
+**The Two Voices Rule.** Space Grotesk shouts headlines and data labels; Silkscreen labels chrome. Never set long reading copy in a display face — each has exactly one job.
 
 **The Human Body Rule.** Paragraphs and descriptions never use pixel faces. Reading copy belongs to the system stack; pixel type is reserved for short, loud strings.
 
@@ -170,12 +172,12 @@ Depth is structural, not ambient. Every shadow is a hard, unblurred rectangle of
 
 ## Shapes
 
-Zero radius is absolute: no `border-radius` appears anywhere in the system. Corners are sharp right angles on every block, chip, tile, and button. All structure comes from the 4px ink border (3px on small elements: chips, tech tags, inline `<strong>` highlights, the status dot's ring). Imagery follows the same law — all artwork is hand-authored pixel-art SVG with `shape-rendering: crispEdges`, displayed with `image-rendering: pixelated`: a 16×16 pixel portrait and 24×24 project glyphs drawn on flat color panels. Even the favicon is a pixel concentric-square mark in the palette. The recurring silhouette is the bordered rectangle with a hard shadow; the only ornament is the ★ separator character inside tickers.
+Corners are softened by a two-step radius scale: **14px (`--radius`) on structural blocks** — buttons, nav blocks, project cards, about block, social links, the portrait frame — and **9px (`--radius-sm`) on small elements** — chips, tech tags, bar tracks, skill tiles, fact tiles, segment-title plates, inline `<em>`/`<strong>` highlights. The status dot is a full circle. Structure still comes from the 4px ink border (3px on small elements: chips, tech tags, inline `<strong>` highlights, the status dot's ring); cards clip their own overflow so media panels respect the outer radius. Imagery follows the pixel-art law — all artwork is hand-authored pixel-art SVG with `shape-rendering: crispEdges`, displayed with `image-rendering: pixelated`: a 16×16 pixel portrait and 24×24 project glyphs drawn on flat color panels. Even the favicon is a pixel concentric-square mark in the palette. The recurring silhouette is the rounded bordered rectangle with a hard shadow; the only ornament is the ★ separator character inside tickers.
 
 ## Components
 
 ### Buttons
-- **Shape:** sharp-corner bordered block (4px ink border, 0 radius), Silkscreen 700 label, uppercase, letter-spacing .08em, arrow suffix (→) on primary actions.
+- **Shape:** soft-corner bordered block (4px ink border, 14px radius), Silkscreen 700 label, uppercase, letter-spacing .08em, arrow suffix (→) on primary actions.
 - **Primary:** Signal Yellow ground (#FFE14D), ink text, padding 1rem 1.6rem, Lifted shadow (8px). Large variant (`btn-big`) scales to 1.25rem text and 1.3rem 2.2rem padding.
 - **Ghost:** paper ground, identical geometry — the quiet sibling for secondary actions.
 - **Hover / Active:** translate 3px down-right with shadow shrinking to 5px (hover); translate 6px with 2px shadow (active). Transition in `steps(2)` over .12s — the press feels mechanical, not eased.
@@ -185,7 +187,7 @@ Zero radius is absolute: no `border-radius` appears anywhere in the system. Corn
 - **Variants:** placeholder chip (ink ground, yellow text — flags sample content honestly) and type chip (paper ground). Tech tags reuse the chip form on Wire Blue ground at .8rem.
 
 ### Cards (Project Blocks)
-- **Corner Style:** 0 radius, 4px ink border.
+- **Corner Style:** 14px radius, 4px ink border, overflow hidden so the media panel respects the radius.
 - **Background:** paper, with the media panel carrying one flat signal color (cyan / yellow / green rotation).
 - **Shadow Strategy:** Lifted (8px 8px ink) — cards sit highest of any element.
 - **Border:** internal 4px rule divides media panel from body.
@@ -198,16 +200,16 @@ Zero radius is absolute: no `border-radius` appears anywhere in the system. Corn
 - **Mobile:** row layout ≤900px, back to column ≤480px.
 
 ### Fact Tiles
-Bordered label/value blocks (min-width 10rem): Silkscreen dt label (.78rem, tracked) over a Press Start 2P dd value (.82rem). Grounds rotate yellow / blue / red, always with ink text. Entrance-stamped last in the hero sequence.
+Bordered label/value blocks (min-width 10rem): Space Grotesk 700 dt label (.95rem, tracked) over a Space Grotesk 700 dd value (1.25rem). Grounds rotate yellow / blue / red, always with ink text. Entrance-stamped last in the hero sequence.
 
 ### Skill Wall
-A wrapping flex wall of bordered Press Start 2P tiles in three size tiers (priority encoded by size). Rest on paper with Resting shadow; hover sinks 2px and recolors to Sky Cyan.
+A wrapping flex wall of bordered Space Grotesk 700 tiles in three size tiers (priority encoded by size). Rest on paper with Resting shadow; hover sinks 2px and recolors to Sky Cyan.
 
 ### Signature: Marquee Tickers
 Full-width running text bands bookending the page. Top: Alarm Red ground, ink text, loops left over 22s linear infinite. Bottom: ink ground, yellow text, loops in reverse. Content is duplicated spans translating −50% for a seamless loop; `user-select: none`; marked `aria-hidden`.
 
 ### Signature: Segment Title Plate
-Ink-filled inline block holding Press Start 2P section titles in paper-colored text, casting the double yellow-and-ink shadow, ending in a blinking yellow underscore cursor (blink 1.2s `steps(2)` infinite).
+Ink-filled inline block holding Space Grotesk 700 section titles in paper-colored text, casting the double yellow-and-ink shadow, ending in a blinking yellow underscore cursor (blink 1.2s `steps(2)` infinite).
 
 ### Themed Browser Surfaces
 Selection is ink-on-yellow (`::selection`). Scrollbar is themed: 14px wide, paper track with an ink left border, ink thumb inset by a 3px paper border. Focus rings are 4px solid Wire Blue with 3px offset (`:focus-visible`). Smooth scrolling anchors throughout; disabled under reduced motion.
@@ -231,9 +233,9 @@ Selection is ink-on-yellow (`::selection`). Scrollbar is themed: 14px wide, pape
 - **Do** label placeholder content visibly (the ink/yellow PLACEHOLDER chip pattern) until real projects replace it.
 
 ### Don't:
-- **Don't** round any corner — border-radius is banned system-wide.
+- **Don't** invent new radius values — only the two tokens (`--radius` 14px blocks, `--radius-sm` 9px small elements) and the full-circle status dot.
 - **Don't** use gradients, soft/blurred shadows, translucency, or glow — depth is flat ink offsets only.
 - **Don't** introduce new accent colors; the palette is exactly paper, deep paper, ink, yellow, muted yellow, red, blue, green, cyan.
-- **Don't** set body paragraphs or long bilingual copy in pixel fonts — Press Start 2P and Silkscreen are for short loud strings and chrome only.
+- **Don't** set body paragraphs or long bilingual copy in a display face — Space Grotesk and Silkscreen are for short loud strings and chrome only.
 - **Don't** ease hover states smoothly or float elements upward on hover; interactions press *into* the page.
 - **Don't** center a conventional hero-plus-card-grid layout; the split rail + marquee desk structure is the identity.
