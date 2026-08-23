@@ -1,0 +1,8 @@
+# Tooling / local artifacts
+.opencode/
+.playwright-mcp/
+.impeccable/
+
+# OS
+Thumbs.db
+.DS_Store

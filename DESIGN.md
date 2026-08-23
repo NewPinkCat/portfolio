@@ -1,0 +1,231 @@
+---
+name: CaQuAnh Portfolio
+description: Pixel-brutalist broadcast-desk portfolio — cream paper, 4px ink rules, hard offset shadows, bitmap display type.
+colors:
+  paper: "#F5EFE0"
+  ink: "#111111"
+  yellow: "#FFE14D"
+  red: "#FF4D4D"
+  blue: "#4D79FF"
+  green: "#4DD97A"
+  cyan: "#4DD9FF"
+typography:
+  display:
+    fontFamily: '"Press Start 2P", monospace'
+    fontSize: "clamp(1.5rem, 1rem + 2.6vw, 3rem)"
+    fontWeight: 400
+    lineHeight: 1.45
+    letterSpacing: "-0.02em"
+  wordmark:
+    fontFamily: '"Press Start 2P", monospace'
+    fontSize: "clamp(1.4rem, 1.2rem + 0.6vw, 1.8rem)"
+    fontWeight: 400
+    lineHeight: 1.35
+    letterSpacing: "-0.03em"
+  section-title:
+    fontFamily: '"Press Start 2P", monospace'
+    fontSize: "clamp(1.2rem, 1rem + 1vw, 1.7rem)"
+    fontWeight: 400
+    letterSpacing: "-0.02em"
+  label:
+    fontFamily: '"Silkscreen", monospace'
+    fontSize: "0.78rem"
+    fontWeight: 700
+    letterSpacing: "0.14em"
+  body:
+    fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif'
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.6
+rounded:
+  none: "0"
+components:
+  button-primary:
+    backgroundColor: "{colors.yellow}"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "1rem 1.6rem"
+  button-ghost:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "1rem 1.6rem"
+  chip-placeholder:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.yellow}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "0.2rem 0.55rem"
+  chip-type:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "0.2rem 0.55rem"
+---
+
+# Design System: CaQuAnh Portfolio
+
+## Overview
+
+**Creative North Star: "The Broadcast Desk"**
+
+This site is a transmission studio rendered on cream paper: a fixed identity rail on the left acts as the anchor booth, while content broadcasts on the right under running marquee tickers. Every element is a physical broadcast prop — bordered like a switch-panel block, shadowed like a key sitting proud of the desk, animated in discrete mechanical steps rather than smooth fades. The world refuses the centered-hero-plus-card-grid template entirely.
+
+The material character is Neo-Brutalism executed with pixel-font typography: bold flat color fields (signal yellow, alarm red, wire blue, terminal green, sky cyan) separated exclusively by hard 4px black rules, with depth expressed only as unblurred offset blocks of pure ink. Nothing glows, nothing blurs, nothing rounds. Motion is deliberately mechanical — marquees loop linearly, entrances land in `steps(4)` like a rubber stamp, status indicators blink like LEDs. Density is generous but rhythmic: large breathing room between segments, tight internal padding inside bordered blocks.
+
+Bilingual content (Vietnamese + English) flows through one typographic voice; pixel display faces carry English statements while readable Vietnamese body copy stays in the human-readable system stack.
+
+**Key Characteristics:**
+- Cream paper ground (#F5EFE0) with a subtle ruled-line texture behind the rail
+- 4px solid ink (#111111) border on every structural element — no exceptions
+- Hard, unblurred offset shadows (8px/8px and 5px/5px, always pure ink)
+- Flat color fields only: yellow / red / blue / green / cyan on paper and ink
+- Press Start 2P as display voice; Silkscreen for all labels and chrome
+- Zero border-radius anywhere in the system
+- Mechanical motion: `steps()` easing everywhere, linear marquees, blinking cursors
+- Pixel-art SVG imagery (`shape-rendering: crispEdges`, `image-rendering: pixelated`)
+
+## Colors
+
+A flat broadcast palette: warm paper and dense ink do all the structural work, while five saturated signal colors act as switch-panel indicator fields.
+
+### Primary
+- **Signal Yellow** (#FFE14D): the brand's loudest voice. Primary CTAs, the portrait-block ground, highlighted words inline in headlines (`<em>` treatment), large skill tiles, project media panel B, and the offset shadow under segment titles. If something must be noticed first, it is yellow.
+
+### Secondary
+- **Alarm Red** (#FF4D4D): urgency and framing. Top marquee ticker ground, the third nav block's hover state, fact-tile STATUS field, the red text-shadow behind the stacked CAQUANH wordmark, and the shirt in the pixel portrait.
+- **Wire Blue** (#4D79FF): informational fields. Tech-stack tags, the MODE fact tile, and the global focus-visible outline color.
+- **Terminal Green** (#4DD97A): live/positive signals. Status dot ("OPEN TO WORK"), second nav block hover, project media panel C, and the `>_` prompt glyph.
+- **Sky Cyan** (#4DD9FF): cool highlight. First nav block hover, strong-name inline highlight in the intro paragraph, skill-tile hover state, project media panel A, and screen glyphs inside project art.
+
+### Neutral
+- **Cream Paper** (#F5EFE0): page background and default block fill; inverted-text color on ink grounds (rail role badge, segment titles, colophon).
+- **Ink** (#111111): every border, every hard shadow, all display type, the bottom ticker and colophon grounds, and selection background.
+
+### Named Rules
+**The Ink Border Rule.** Every structural element carries a 4px solid #111111 border (chips, tags, and inline highlights use the 3px small variant). An element floating without an ink rule is off-system — the only borderless things in this world are raw text lines.
+
+**The Two Grounds Rule.** Color fields sit on exactly two grounds: paper (light mode blocks) or ink (inverted blocks). A colored field is always paired with ink text; white text does not exist in this system.
+
+## Typography
+
+**Display Font:** Press Start 2P (fallback: monospace) — loaded from Google Fonts
+**Label/Chrome Font:** Silkscreen, weight 400/700 (fallback: monospace) — loaded from Google Fonts
+**Body Font:** System UI stack (`system-ui, -apple-system, "Segoe UI", sans-serif`)
+
+**Character:** Two pixel voices, one human voice. Press Start 2P shouts the statements that define identity; Silkscreen stamps the operational chrome (buttons, tags, tickers, labels); the system stack quietly carries bilingual reading copy so long Vietnamese sentences stay legible.
+
+### Hierarchy
+- **Wordmark** (Press Start 2P 400, clamp(1.4rem → 1.8rem), line-height 1.35, tracking −0.03em, red 3px offset text-shadow): the stacked CA/QU/ANH identity block in the rail only.
+- **Display** (Press Start 2P 400, clamp(1.5rem → 3rem), line-height 1.45): the two-line hero statement. Single emphasized words get the yellow-bordered-inline-block treatment.
+- **Section Title** (Press Start 2P 400, clamp(1.2rem → 1.7rem)): PROJECTS / SKILLS / CONTACT set as ink-filled blocks with yellow offset shadow and a blinking `_` cursor tick.
+- **Block Titles** (Press Start 2P 400, 1.05rem, line-height 1.5): project names and fact-tile values (.82rem variant).
+- **Skill Tiles** (Press Start 2P 400, three steps: .95rem large / .8rem standard / .68rem small): encodes skill priority through size alone.
+- **Label** (Silkscreen 700, .72–1.05rem, letter-spacing .08–.15em, uppercase): buttons, nav blocks, chips, tech tags, tickers, dt headings, status line, colophon.
+- **Body** (system-ui 400, 1.0625rem, line-height 1.6): default reading copy; intro paragraph at 1.125rem capped at 58ch; section notes capped at 52ch.
+
+### Named Rules
+**The Two Pixel Voices Rule.** Press Start 2P speaks; Silkscreen labels. Never use Press Start 2P below .8rem or Silkscreen for headline statements — each face has exactly one job.
+
+**The Human Body Rule.** Paragraphs and descriptions never use pixel faces. Reading copy belongs to the system stack; pixel type is reserved for short, loud strings.
+
+## Layout
+
+The page is a fixed split: a 300px identity rail pinned left (`grid-template-columns: 300px 1fr`, sticky, full viewport height, independently scrollable) and a content desk filling the rest. The rail stacks vertically — pixel portrait, stacked wordmark, role badge, three numbered nav blocks, status line pushed to the bottom via `margin-top: auto` — over a faint ruled-paper texture (repeating-linear-gradient at 24px pitch, 5% ink opacity).
+
+Content flows down the desk as full-bleed horizontal bands: top marquee ticker → hero → ruled-off segments (PROJECTS, SKILLS, CONTACT) → footer band (reverse marquee + colophon). Each segment opens with `border-top: 4px solid ink`. All content inside the desk caps at `max-width: 62rem`; reading paragraphs cap at 52–58ch.
+
+Spacing rhythm: segment padding `clamp(2.5rem, 6vh, 4rem)` vertical × `clamp(1.5rem, 4vw, 4rem)` horizontal; hero slightly taller at up to 5.5rem top. Internal block padding sits at 1–1.75rem; flex/grid gaps step through .55rem (tags) → 1.25rem (tiles/buttons/facts) → 2.5–3rem (between cards and section heads).
+
+Responsive behavior:
+- **≤900px:** the rail collapses into a wrapping horizontal header bar (border-bottom instead of border-right), portrait shrinks to 84px, wordmark flattens to one line, nav blocks stretch full-width in a row. Project cards stack — media panel moves above the body with a bottom border instead of right.
+- **≤480px:** nav returns to a vertical column, fact tiles stack vertically, all buttons go full-width centered.
+
+## Elevation & Depth
+
+Depth is structural, not ambient. Every shadow is a hard, unblurred rectangle of pure ink offset down-right — the element reads as a physical object sitting above the paper. Shadows never blur, never use alpha, never change color; they shrink as elements "press" into the page.
+
+### Shadow Vocabulary
+- **Lifted** (`box-shadow: 8px 8px 0 #111111`): primary buttons at rest, project cards. The full-projection state.
+- **Resting** (`box-shadow: 5px 5px 0 #111111`): nav blocks, skill tiles, fact tiles, portrait block, inline highlighted words. The default object height.
+- **Pressed** (`translate 2–3px + shadow 3px 3px`): hover state across all interactive tiles — the object sinks halfway.
+- **Fully pressed** (`translate 6px + shadow 2px 2px`): button `:active` — nearly flush with the paper.
+- **Title plate** (`box-shadow: 6px 6px 0 #FFE14D, 6px 6px 0 4px #111111`): segment titles cast a double shadow — a yellow block wrapped by an ink outline. The only place a non-ink shadow appears.
+
+### Named Rules
+**The Hard Shadow Rule.** Shadows are flat ink rectangles: `X Y 0 #111111`, never blurred, never translucent. Depth changes happen by translating the element and shrinking its shadow together, so total projection stays consistent.
+
+**The Press-In Rule.** Interactive elements move *into* the page on interaction (hover sinks partway, active sinks fully). Elements never float upward or grow on hover.
+
+## Shapes
+
+Zero radius is absolute: no `border-radius` appears anywhere in the system. Corners are sharp right angles on every block, chip, tile, and button. All structure comes from the 4px ink border (3px on small elements: chips, tech tags, inline `<strong>` highlights, the status dot's ring). Imagery follows the same law — all artwork is hand-authored pixel-art SVG with `shape-rendering: crispEdges`, displayed with `image-rendering: pixelated`: a 16×16 pixel portrait and 24×24 project glyphs drawn on flat color panels. Even the favicon is a pixel concentric-square mark in the palette. The recurring silhouette is the bordered rectangle with a hard shadow; the only ornament is the ★ separator character inside tickers.
+
+## Components
+
+### Buttons
+- **Shape:** sharp-corner bordered block (4px ink border, 0 radius), Silkscreen 700 label, uppercase, letter-spacing .08em, arrow suffix (→) on primary actions.
+- **Primary:** Signal Yellow ground (#FFE14D), ink text, padding 1rem 1.6rem, Lifted shadow (8px). Large variant (`btn-big`) scales to 1.25rem text and 1.3rem 2.2rem padding.
+- **Ghost:** paper ground, identical geometry — the quiet sibling for secondary actions.
+- **Hover / Active:** translate 3px down-right with shadow shrinking to 5px (hover); translate 6px with 2px shadow (active). Transition in `steps(2)` over .12s — the press feels mechanical, not eased.
+
+### Chips
+- **Style:** 3px ink border, Silkscreen 700 at .72rem, letter-spacing .12em, padding .2rem .55rem.
+- **Variants:** placeholder chip (ink ground, yellow text — flags sample content honestly) and type chip (paper ground). Tech tags reuse the chip form on Wire Blue ground at .8rem.
+
+### Cards (Project Blocks)
+- **Corner Style:** 0 radius, 4px ink border.
+- **Background:** paper, with the media panel carrying one flat signal color (cyan / yellow / green rotation).
+- **Shadow Strategy:** Lifted (8px 8px ink) — cards sit highest of any element.
+- **Border:** internal 4px rule divides media panel from body.
+- **Internal Padding:** media panel 1.5rem around a 96px pixel glyph; body 1.5rem vertical × 1.75rem horizontal.
+- **Layout:** desktop `220px | 1fr` grid (glyph panel left, content right); stacks vertically ≤900px.
+
+### Navigation (Rail Nav Blocks)
+- **Style:** full-width bordered blocks with a leading key square (ink ground, yellow number, 1.7em square) + Silkscreen 700 label at 1.05rem.
+- **States:** rest on paper with Resting shadow; hover translates 2px into a per-item signal color (cyan / green / red by position) with Pressed shadow; focus-visible gets the global 4px Wire Blue outline.
+- **Mobile:** row layout ≤900px, back to column ≤480px.
+
+### Fact Tiles
+Bordered label/value blocks (min-width 10rem): Silkscreen dt label (.78rem, tracked) over a Press Start 2P dd value (.82rem). Grounds rotate yellow / blue / red, always with ink text. Entrance-stamped last in the hero sequence.
+
+### Skill Wall
+A wrapping flex wall of bordered Press Start 2P tiles in three size tiers (priority encoded by size). Rest on paper with Resting shadow; hover sinks 2px and recolors to Sky Cyan.
+
+### Signature: Marquee Tickers
+Full-width running text bands bookending the page. Top: Alarm Red ground, ink text, loops left over 22s linear infinite. Bottom: ink ground, yellow text, loops in reverse. Content is duplicated spans translating −50% for a seamless loop; `user-select: none`; marked `aria-hidden`.
+
+### Signature: Segment Title Plate
+Ink-filled inline block holding Press Start 2P section titles in paper-colored text, casting the double yellow-and-ink shadow, ending in a blinking yellow underscore cursor (blink 1.2s `steps(2)` infinite).
+
+### Themed Browser Surfaces
+Selection is ink-on-yellow (`::selection`). Scrollbar is themed: 14px wide, paper track with an ink left border, ink thumb inset by a 3px paper border. Focus rings are 4px solid Wire Blue with 3px offset (`:focus-visible`). Smooth scrolling anchors throughout; disabled under reduced motion.
+
+### Motion Grammar
+- **Marquee:** `scroll-x` translateX(−50%), 22s linear infinite.
+- **Entrance:** hero statement lines, intro, actions, and facts start hidden (opacity 0, translated 14px down) and stamp in via `stamp-in` (.38s `steps(4)` forwards) staggered .12–.6s after DOM load.
+- **Blink:** status dot (1.6s) and title cursor ticks (1.2s), both `steps(2)` — instant LED-style toggling, never faded.
+- **Press interactions:** all hover/active transitions use `steps(2)` at .12–.15s.
+- **Reduced motion:** `prefers-reduced-motion: reduce` kills marquees, blinks, smooth scrolling, and forces entrance elements visible immediately.
+
+## Do's and Don'ts
+
+### Do:
+- **Do** give every structural element a 4px solid #111111 border (3px on chips/tags/small highlights).
+- **Do** express all depth as hard offset shadows: `8px 8px 0` lifted, `5px 5px 0` resting — pure ink, zero blur.
+- **Do** animate with `steps()` easing; let entrances stamp, presses sink, and indicators blink discretely.
+- **Do** pair any colored field with ink text, and reserve yellow for what must be seen first.
+- **Do** draw all imagery as crisp-edge pixel SVG (`shape-rendering: crispEdges` + `image-rendering: pixelated`) on flat signal-color panels.
+- **Do** honor `prefers-reduced-motion`: stop tickers/blinks and reveal stamped content instantly.
+- **Do** label placeholder content visibly (the ink/yellow PLACEHOLDER chip pattern) until real projects replace it.
+
+### Don't:
+- **Don't** round any corner — border-radius is banned system-wide.
+- **Don't** use gradients, soft/blurred shadows, translucency, or glow — depth is flat ink offsets only.
+- **Don't** introduce new accent colors; the palette is exactly paper, ink, yellow, red, blue, green, cyan.
+- **Don't** set body paragraphs or long bilingual copy in pixel fonts — Press Start 2P and Silkscreen are for short loud strings and chrome only.
+- **Don't** ease hover states smoothly or float elements upward on hover; interactions press *into* the page.
+- **Don't** center a conventional hero-plus-card-grid layout; the split rail + marquee desk structure is the identity.
