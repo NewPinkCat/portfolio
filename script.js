@@ -42,4 +42,24 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', setActive, { passive: true });
     setActive();
   }
+
+  const root = document.documentElement;
+  const themeBtn = document.querySelector('.theme-toggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const syncThemeUI = () => {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    const label = themeBtn.querySelector('.tt-label');
+    label.textContent = dark ? 'LIGHT' : 'DARK';
+    themeBtn.setAttribute('aria-pressed', String(dark));
+    themeMeta.setAttribute('content', dark ? '#1a1611' : '#111111');
+  };
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('caquanh-theme', next); } catch (e) {}
+      syncThemeUI();
+    });
+    syncThemeUI();
+  }
 });

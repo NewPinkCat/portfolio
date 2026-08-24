@@ -115,6 +115,8 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 ### Named Rules
 **The Ink Border Rule.** Every structural element carries a 4px solid #111111 border (chips, tags, and inline highlights use the 3px small variant). An element floating without an ink rule is off-system — the only borderless things in this world are raw text lines.
 
+**The Dark Broadcast Rule.** The dark theme is the same broadcast desk at night: paper flips to warm near-black (#1A1611 / deep #241E15), ink flips to cream (#F2ECDC) and carries every border, shadow, and line of default text — the Ink Border Rule survives intact. Signal fields keep their hues but flip their text to near-black `--field-ink` (#14110B); inverted blocks (segment titles, footer, role badge) simply swap grounds. Nothing blurs, nothing glows, no new accent colors.
+
 **The Two Grounds Rule.** Color fields sit on exactly two grounds: paper or deep paper (light mode blocks) or ink (inverted blocks). A colored field is always paired with ink text; white text does not exist in this system.
 
 **The One Loud Voice Rule.** Full-saturation Signal Yellow appears only on primary CTAs and inline headline highlights. Every other former instance uses Muted Signal Yellow. No saturated field ever spans a full viewport width.
@@ -207,6 +209,9 @@ A wrapping flex wall of bordered Space Grotesk 700 tiles in three size tiers (pr
 
 ### Footer
 Ink-ground block closing the page: Space Grotesk 700 wordmark line, inline uppercase nav links (paper text, yellow underline on hover), and a quiet system-font colophon. No marquee tickers — they were retired for a calmer, more professional close.
+
+### Theme Toggle
+A small bordered Silkscreen button in the rail footer beneath the status line, pairing a hand-drawn pixel moon/sun icon (`crispEdges`, `currentColor`) with a target-mode label ("DARK" while light, "LIGHT" while dark) — the label always announces what pressing does. Press states follow the standard press-in vocabulary (hover sinks 2px/3px shadow, active 4px/2px). Choice persists in localStorage under `caquanh-theme`; first visit follows `prefers-color-scheme`. An inline head script applies the saved theme before first paint to prevent flash, and the `theme-color` meta updates with each switch. Switching is instant — no cross-fade — per the mechanical-motion law.
 
 ### Signature: Segment Title Plate
 Ink-filled inline block holding Space Grotesk 700 section titles in paper-colored text, casting the double yellow-and-ink shadow, ending in a blinking yellow underscore cursor (blink 1.2s `steps(2)` infinite).

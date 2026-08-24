@@ -16,6 +16,7 @@
   --font-chip: "Silkscreen", monospace;
   --font-head: "Space Grotesk", var(--font-body);
   --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --rule-line: rgba(17,17,17,.05);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -73,7 +74,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   background:
-    repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(17,17,17,.05) 24px),
+    repeating-linear-gradient(0deg, transparent, transparent 23px, var(--rule-line) 24px),
     var(--paper);
 }
 
@@ -597,6 +598,82 @@ body.loaded .bar-fill { width: calc(var(--level, 0) * 1%); }
   line-height: 1.5;
   color: var(--paper);
   opacity: .72;
+}
+
+/* ============ THEME TOGGLE ============ */
+
+.rail-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  font-family: var(--font-chip);
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: .5rem .75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: translate .12s steps(2), box-shadow .12s steps(2);
+}
+.theme-toggle:hover { translate: 2px 2px; box-shadow: 3px 3px 0 var(--ink); }
+.theme-toggle:active { translate: 4px 4px; box-shadow: 2px 2px 0 var(--ink); }
+
+.tt-icon { width: 14px; height: 14px; image-rendering: pixelated; }
+.tt-sun { display: none; }
+[data-theme="dark"] .tt-moon { display: none; }
+[data-theme="dark"] .tt-sun { display: block; }
+
+/* ============ DARK THEME ============ */
+
+[data-theme="dark"] {
+  --rule-line: rgba(242,236,220,.06);
+  --paper: #1a1611;
+  --paper-deep: #241e15;
+  --ink: #f2ecdc;
+  --field-ink: #14110b;
+}
+
+[data-theme="dark"] ::selection { background: var(--yellow); color: var(--field-ink); }
+
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .hero-statement em,
+[data-theme="dark"] .hero-sub strong,
+[data-theme="dark"] .fact,
+[data-theme="dark"] .tech-row li,
+[data-theme="dark"] .chip-learning,
+[data-theme="dark"] .skill:hover,
+[data-theme="dark"] .social-link:hover,
+[data-theme="dark"] .nav-block:hover,
+[data-theme="dark"] .title-tick {
+  color: var(--field-ink);
+}
+
+[data-theme="dark"] .skip-link,
+[data-theme="dark"] .nav-key,
+[data-theme="dark"] .chip-placeholder,
+[data-theme="dark"] .nav-block[aria-current="true"] {
+  background: var(--field-ink);
+  color: var(--yellow);
+}
+[data-theme="dark"] .nav-block[aria-current="true"] .nav-key {
+  background: var(--yellow);
+  color: var(--field-ink);
+}
+
+[data-theme="dark"] .foot-nav a:hover {
+  color: var(--field-ink);
+  border-bottom-color: var(--field-ink);
 }
 
 /* ============ ENTRANCE ============ */
