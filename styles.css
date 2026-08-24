@@ -174,38 +174,8 @@ body {
 
 .desk { min-width: 0; display: flex; flex-direction: column; }
 
-/* tickers */
-
-.ticker {
-  border-bottom: var(--border);
-  overflow: hidden;
-  white-space: nowrap;
-  user-select: none;
-}
-.ticker-top { background: var(--ink); }
-.ticker-track {
-  display: inline-flex;
-  animation: scroll-x 38s linear infinite;
-  font-family: var(--font-chip);
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: .15em;
-  padding: .55rem 0;
-}
-.ticker-reverse { animation-direction: reverse; }
-.ticker-top .ticker-track { color: var(--yellow); }
-.ticker:hover .ticker-track { animation-play-state: paused; }
-.ticker-bottom { background: var(--ink); border-bottom: none; border-top: var(--border); }
-.ticker-bottom .ticker-track { color: var(--yellow); }
-
-@keyframes scroll-x {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .ticker-track { animation: none; }
   .status-dot { animation: none; }
   .bar-fill { transition: none; }
   .hero-statement > span, .hero-sub, .hero-actions, .fact { opacity: 1 !important; transform: none !important; animation: none !important; }
@@ -373,12 +343,13 @@ body {
 
 .project-meta-row { display: flex; gap: .6rem; flex-wrap: wrap; }
 .chip {
-  font-family: var(--font-chip);
+  font-family: var(--font-head);
   font-weight: 700;
-  font-size: .72rem;
-  letter-spacing: .12em;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
   border: 3px solid var(--ink);
-  padding: .2rem .55rem;
+  padding: .25rem .65rem;
   border-radius: var(--radius-sm);
 }
 .chip-placeholder { background: var(--ink); color: var(--yellow); }
@@ -404,8 +375,10 @@ body {
   margin-top: 1.2rem;
 }
 .tech-row li {
-  font-family: var(--font-chip);
-  font-size: .8rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .03em;
   font-weight: 700;
   border: 3px solid var(--ink);
   background: var(--blue);
@@ -452,10 +425,11 @@ body {
 }
 
 .bar-name {
-  font-family: var(--font-chip);
+  font-family: var(--font-head);
   font-weight: 700;
-  font-size: .88rem;
-  letter-spacing: .06em;
+  font-size: 1rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
   text-align: right;
 }
 
@@ -579,15 +553,50 @@ body.loaded .bar-fill { width: calc(var(--level, 0) * 1%); }
 
 /* footer */
 
-.site-foot { margin-top: auto; }
-.colophon {
-  font-family: var(--font-chip);
-  font-weight: 700;
-  font-size: .8rem;
-  letter-spacing: .1em;
-  padding: 1.25rem clamp(1.5rem, 4vw, 4rem);
+.site-foot {
+  margin-top: auto;
   background: var(--ink);
   color: var(--paper);
+  border-top: var(--border);
+  padding: 2.25rem clamp(1.5rem, 4vw, 4rem) 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+}
+.foot-name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .4rem 1.6rem;
+}
+.foot-nav a {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 3px solid transparent;
+  transition: color .12s, border-color .12s;
+}
+.foot-nav a:hover { color: var(--yellow); border-bottom-color: var(--yellow); }
+.colophon {
+  font-family: var(--font-body);
+  font-size: .9rem;
+  line-height: 1.5;
+  color: var(--paper);
+  opacity: .72;
 }
 
 /* ============ ENTRANCE ============ */
@@ -657,8 +666,6 @@ body.loaded .fact:nth-child(3) { animation-delay: .6s; }
   .rail-nav { flex-direction: column; }
   .nav-block { justify-content: flex-start; font-size: 1rem; }
 
-  .ticker-track { font-size: .85rem; letter-spacing: .1em; }
-
   .hero { padding-top: 2.5rem; }
   .hero-sub { margin-top: 1.5rem; font-size: 1.0625rem; }
   .hero-actions { gap: .9rem; margin-top: 1.75rem; }
@@ -680,5 +687,4 @@ body.loaded .fact:nth-child(3) { animation-delay: .6s; }
   .social-link { width: 100%; padding: 1rem 1.1rem; }
 
   .project-body { padding: 1.25rem; }
-  .colophon { padding: 1.1rem 1.25rem; }
 }

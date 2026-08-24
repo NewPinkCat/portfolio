@@ -110,7 +110,7 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 ### Neutral
 - **Cream Paper** (#F5EFE0): page background and default block fill; inverted-text color on ink grounds (rail role badge, segment titles, colophon).
 - **Deep Paper** (#EDE4CF): alternating segment ground (ABOUT, SKILLS). Gives the scroll rhythm without introducing gray.
-- **Ink** (#111111): every border, every hard shadow, all display type, both ticker bands and colophon ground, and selection background.
+- **Ink** (#111111): every border, every hard shadow, all display type, footer groundand colophon ground, and selection background.
 
 ### Named Rules
 **The Ink Border Rule.** Every structural element carries a 4px solid #111111 border (chips, tags, and inline highlights use the 3px small variant). An element floating without an ink rule is off-system — the only borderless things in this world are raw text lines.
@@ -134,7 +134,7 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 - **Chart Labels** (Space Grotesk 700, 1.35rem, uppercase, line-height 1.3): WEB DEVELOPMENT / CYBERSECURITY group headings with chips inline.
 - **Block Titles** (Space Grotesk 700, 1.4rem uppercase): project names; fact-tile values at 1.25rem.
 - **Skill Tiles** (Space Grotesk 700, three steps: 1.35rem large / 1.05rem standard / .9rem small): encodes skill priority through size alone.
-- **Label** (Silkscreen 700, .72–1.05rem, letter-spacing .08–.15em, uppercase): buttons, nav blocks, chips, tech tags, tickers, dt headings, status line, colophon.
+- **Label** (Space Grotesk 700, 1rem, letter-spacing .04em, uppercase): skill bar names and tech tags; Silkscreen 700 (.72–1.05rem) remains for chips, tickers, colophon.
 - **Body** (system-ui 400, 1.0625rem, line-height 1.6): default reading copy; intro paragraph at 1.125rem capped at 58ch; section notes capped at 52ch.
 
 ### Named Rules
@@ -146,7 +146,7 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 
 The page is a fixed split: a 300px identity rail pinned left (`grid-template-columns: 300px 1fr`, sticky, full viewport height, independently scrollable) and a content desk filling the rest. The rail stacks vertically — pixel portrait, stacked wordmark, role badge, three numbered nav blocks, status line pushed to the bottom via `margin-top: auto` — over a faint ruled-paper texture (repeating-linear-gradient at 24px pitch, 5% ink opacity).
 
-Content flows down the desk as full-bleed horizontal bands: top marquee ticker → hero → ruled-off segments (PROJECTS, SKILLS, CONTACT) → footer band (reverse marquee + colophon). Each segment opens with `border-top: 4px solid ink`. All content inside the desk caps at `max-width: 62rem`; reading paragraphs cap at 52–58ch.
+Content flows down the desk as full-bleed horizontal bands: hero → ruled-off segments (ABOUT, PROJECTS, SKILLS, CONNECT) → ink footer band. Each segment opens with `border-top: 4px solid ink`. All content inside the desk caps at `max-width: 62rem`; reading paragraphs cap at 52–58ch.
 
 Spacing rhythm: segment padding `clamp(2.5rem, 6vh, 4rem)` vertical × `clamp(1.5rem, 4vw, 4rem)` horizontal; hero slightly taller at up to 5.5rem top. Internal block padding sits at 1–1.75rem; flex/grid gaps step through .55rem (tags) → 1.25rem (tiles/buttons/facts) → 2.5–3rem (between cards and section heads).
 
@@ -205,8 +205,8 @@ Bordered label/value blocks (min-width 10rem): Space Grotesk 700 dt label (.95re
 ### Skill Wall
 A wrapping flex wall of bordered Space Grotesk 700 tiles in three size tiers (priority encoded by size). Rest on paper with Resting shadow; hover sinks 2px and recolors to Sky Cyan.
 
-### Signature: Marquee Tickers
-Full-width running text bands bookending the page. Top: Alarm Red ground, ink text, loops left over 22s linear infinite. Bottom: ink ground, yellow text, loops in reverse. Content is duplicated spans translating −50% for a seamless loop; `user-select: none`; marked `aria-hidden`.
+### Footer
+Ink-ground block closing the page: Space Grotesk 700 wordmark line, inline uppercase nav links (paper text, yellow underline on hover), and a quiet system-font colophon. No marquee tickers — they were retired for a calmer, more professional close.
 
 ### Signature: Segment Title Plate
 Ink-filled inline block holding Space Grotesk 700 section titles in paper-colored text, casting the double yellow-and-ink shadow, ending in a blinking yellow underscore cursor (blink 1.2s `steps(2)` infinite).
