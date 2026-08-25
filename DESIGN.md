@@ -30,10 +30,15 @@ typography:
     fontWeight: 400
     letterSpacing: "-0.02em"
   label:
+    fontFamily: '"Space Grotesk", sans-serif'
+    fontSize: "0.85rem"
+    fontWeight: 700
+    letterSpacing: "0.06em"
+  chrome:
     fontFamily: '"Silkscreen", monospace'
     fontSize: "0.78rem"
     fontWeight: 700
-    letterSpacing: "0.14em"
+    letterSpacing: "0.12em"
   body:
     fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif'
     fontSize: "1.0625rem"
@@ -75,9 +80,9 @@ components:
 
 **Creative North Star: "The Broadcast Desk"**
 
-This site is a transmission studio rendered on cream paper: a fixed identity rail on the left acts as the anchor booth, while content broadcasts on the right under running marquee tickers. Every element is a physical broadcast prop — bordered like a switch-panel block, shadowed like a key sitting proud of the desk, animated in discrete mechanical steps rather than smooth fades. The world refuses the centered-hero-plus-card-grid template entirely.
+This site is a transmission studio rendered on cream paper: a fixed identity rail on the left acts as the anchor booth, while content broadcasts on the right. Every element is a physical broadcast prop — bordered like a switch-panel block, shadowed like a key sitting proud of the desk, animated in discrete mechanical steps rather than smooth fades. The world refuses the centered-hero-plus-card-grid template entirely.
 
-The material character is Neo-Brutalism executed with pixel-font typography: bold flat color fields (signal yellow, alarm red, wire blue, terminal green, sky cyan) separated exclusively by hard 4px black rules, with depth expressed only as unblurred offset blocks of pure ink. Nothing glows, nothing blurs, nothing rounds. Motion is deliberately mechanical — marquees loop linearly, entrances land in `steps(4)` like a rubber stamp, status indicators blink like LEDs. Density is generous but rhythmic: large breathing room between segments, tight internal padding inside bordered blocks.
+The material character is Neo-Brutalism executed with pixel-font typography: bold flat color fields (signal yellow, alarm red, wire blue, terminal green, sky cyan) separated exclusively by hard 4px black rules, with depth expressed only as unblurred offset blocks of pure ink. Nothing glows, nothing blurs, nothing rounds. Motion is deliberately mechanical — bar fills count up in stepped increments, entrances land in `steps(4)` like a rubber stamp, status indicators blink like LEDs. Density is generous but rhythmic: large breathing room between segments, tight internal padding inside bordered blocks.
 
 Bilingual content (Vietnamese + English) flows through one typographic voice; pixel display faces carry English statements while readable Vietnamese body copy stays in the human-readable system stack.
 
@@ -86,9 +91,9 @@ Bilingual content (Vietnamese + English) flows through one typographic voice; pi
 - 4px solid ink (#111111) border on every structural element — no exceptions
 - Hard, unblurred offset shadows (8px/8px and 5px/5px, always pure ink)
 - Flat color fields only: yellow / red / blue / green / cyan on paper and ink
-- Space Grotesk 700 as the single display/data voice (wordmark, hero, section titles, block headings, tiles, values); Silkscreen for chrome labels and tickers
+- Space Grotesk 700 as the single display/data voice (wordmark, hero, section titles, block headings, tiles, values); Silkscreen for chrome labels
 - Softened corner rounding system-wide: 14px on blocks (buttons, cards, tiles, social links, about block), 9px on small elements (chips, tags, nav keys, bar tracks, title plates)
-- Mechanical motion: `steps()` easing everywhere, linear marquees, blinking cursors
+- Mechanical motion: `steps()` easing everywhere, stepped bar fills and entrances, blinking cursors
 - Pixel-art SVG imagery (`shape-rendering: crispEdges`, `image-rendering: pixelated`)
 
 ## Colors
@@ -102,7 +107,7 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 - **Muted Signal Yellow** (#F0D97E): the working yellow. Portrait-block ground, fact tiles, large skill tiles, striped bar fills, and the offset shadow under segment titles. Reads unmistakably as the brand yellow at ~15% lower luminance and chroma.
 
 ### Secondary
-- **Alarm Red, dimmed** (#F05B5B): urgency accents only. Third nav block hover, fact-tile STATUS field, the red text-shadow behind the stacked CAQUANH wordmark, and the shirt in the pixel portrait. The top marquee is ink-ground, not red — red no longer appears full-bleed anywhere.
+- **Alarm Red, dimmed** (#F05B5B): urgency accents only. Third nav block hover, fact-tile STATUS field, the LEARNING chip on chart labels, the weather strip's offline LED, the red text-shadow behind the stacked CAQUANH wordmark, and the shirt in the pixel portrait. Red never appears full-bleed.
 - **Wire Blue, dimmed** (#6487E8): informational fields. Tech-stack tags, the MODE fact tile, fourth nav block hover, and the global focus-visible outline color.
 - **Terminal Green, dimmed** (#63C98A): live/positive signals. Status dot ("OPEN TO WORK"), second nav block hover, project media panel C, and the `>_` prompt glyph.
 - **Sky Cyan, dimmed** (#74C7E3): cool highlight. First nav block hover, strong-name inline highlight in the intro paragraph, skill-tile hover state, project media panel A, and screen glyphs inside project art.
@@ -127,7 +132,7 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 **Label/Chrome Font:** Silkscreen, weight 400/700 (fallback: monospace) — loaded from Google Fonts
 **Body Font:** System UI stack (`system-ui, -apple-system, "Segoe UI", sans-serif`)
 
-**Character:** One human shout, one pixel whisper. Space Grotesk 700 carries every heading and data label — wordmark, hero statement, section titles, chart labels, project names, skill tiles, fact values, buttons, nav, status line — with uppercase transforms and tight tracking; Silkscreen stamps the operational chrome (tags, tickers, labels); the system stack quietly carries bilingual reading copy so long Vietnamese sentences stay legible.
+**Character:** One human shout, one pixel whisper. Space Grotesk 700 carries every heading and data label — wordmark, hero statement, section titles, chart labels, project names, skill tiles, fact values, buttons, nav, status line — with uppercase transforms and tight tracking; Silkscreen stamps only the few operational chrome pieces left (rail role badge, theme toggle, skip link); the system stack quietly carries bilingual reading copy so long Vietnamese sentences stay legible.
 
 ### Hierarchy
 - **Wordmark** (Space Grotesk 700, clamp(1.7rem → 2.3rem), line-height 1.1, tracking −0.02em, uppercase, red 3px offset text-shadow): the stacked CA/QU/ANH identity block in the rail only.
@@ -136,7 +141,7 @@ A flat broadcast palette tuned for long reading: warm paper and dense ink do all
 - **Chart Labels** (Space Grotesk 700, 1.35rem, uppercase, line-height 1.3): WEB DEVELOPMENT / CYBERSECURITY group headings with chips inline.
 - **Block Titles** (Space Grotesk 700, 1.4rem uppercase): project names; fact-tile values at 1.25rem.
 - **Skill Tiles** (Space Grotesk 700, three steps: 1.35rem large / 1.05rem standard / .9rem small): encodes skill priority through size alone.
-- **Label** (Space Grotesk 700, 1rem, letter-spacing .04em, uppercase): skill bar names and tech tags; Silkscreen 700 (.72–1.05rem) remains for chips, tickers, colophon.
+- **Label** (Space Grotesk 700, 1rem, letter-spacing .04em, uppercase): skill bar names, tech tags, and the weather strip's station label; Silkscreen 700 (.78–.95rem) remains only for the role badge, theme toggle, and skip link; the colophon runs in the system stack at .9rem.
 - **Body** (system-ui 400, 1.0625rem, line-height 1.6): default reading copy; intro paragraph at 1.125rem capped at 58ch; section notes capped at 52ch.
 
 ### Named Rules
@@ -174,18 +179,18 @@ Depth is structural, not ambient. Every shadow is a hard, unblurred rectangle of
 
 ## Shapes
 
-Corners are softened by a two-step radius scale: **14px (`--radius`) on structural blocks** — buttons, nav blocks, project cards, about block, social links, the portrait frame — and **9px (`--radius-sm`) on small elements** — chips, tech tags, bar tracks, skill tiles, fact tiles, segment-title plates, inline `<em>`/`<strong>` highlights. The status dot is a full circle. Structure still comes from the 4px ink border (3px on small elements: chips, tech tags, inline `<strong>` highlights, the status dot's ring); cards clip their own overflow so media panels respect the outer radius. Imagery follows the pixel-art law — all artwork is hand-authored pixel-art SVG with `shape-rendering: crispEdges`, displayed with `image-rendering: pixelated`: a 16×16 pixel portrait and 24×24 project glyphs drawn on flat color panels. Even the favicon is a pixel concentric-square mark in the palette. The recurring silhouette is the rounded bordered rectangle with a hard shadow; the only ornament is the ★ separator character inside tickers.
+Corners are softened by a two-step radius scale: **14px (`--radius`) on structural blocks** — buttons, nav blocks, project cards, about block, social links, the portrait frame — and **9px (`--radius-sm`) on small elements** — chips, tech tags, bar tracks, skill tiles, fact tiles, segment-title plates, inline `<em>`/`<strong>` highlights. The status dot is a full circle. Structure still comes from the 4px ink border (3px on small elements: chips, tech tags, inline `<strong>` highlights, the status dot's ring); cards clip their own overflow so media panels respect the outer radius. Imagery follows the pixel-art law — all artwork is hand-authored pixel-art SVG with `shape-rendering: crispEdges`, displayed with `image-rendering: pixelated`: a 16×16 pixel portrait and 24×24 project glyphs drawn on flat color panels. Even the favicon is a pixel concentric-square mark in the palette. The recurring silhouette is the rounded bordered rectangle with a hard shadow; the only ornaments are operational — LED status dots and blinking cursor ticks.
 
 ## Components
 
 ### Buttons
-- **Shape:** soft-corner bordered block (4px ink border, 14px radius), Silkscreen 700 label, uppercase, letter-spacing .08em, arrow suffix (→) on primary actions.
+- **Shape:** soft-corner bordered block (4px ink border, 14px radius), Space Grotesk 700 label, uppercase, letter-spacing .05em, arrow suffix (→) on primary actions.
 - **Primary:** Signal Yellow ground (#FFE14D), ink text, padding 1rem 1.6rem, Lifted shadow (8px). Large variant (`btn-big`) scales to 1.25rem text and 1.3rem 2.2rem padding.
 - **Ghost:** paper ground, identical geometry — the quiet sibling for secondary actions.
 - **Hover / Active:** translate 3px down-right with shadow shrinking to 5px (hover); translate 6px with 2px shadow (active). Transition in `steps(2)` over .12s — the press feels mechanical, not eased.
 
 ### Chips
-- **Style:** 3px ink border, Silkscreen 700 at .72rem, letter-spacing .12em, padding .2rem .55rem.
+- **Style:** 3px ink border, Space Grotesk 700 at .85rem, letter-spacing .06em, padding .2rem .55rem.
 - **Variants:** placeholder chip (ink ground, yellow text — flags sample content honestly) and type chip (paper ground). Tech tags reuse the chip form on Wire Blue ground at .8rem.
 
 ### Cards (Project Blocks)
@@ -197,21 +202,27 @@ Corners are softened by a two-step radius scale: **14px (`--radius`) on structur
 - **Layout:** desktop `220px | 1fr` grid (glyph panel left, content right); stacks vertically ≤900px.
 
 ### Navigation (Rail Nav Blocks)
-- **Style:** full-width bordered blocks with a leading key square (ink ground, yellow number, 1.7em square) + Silkscreen 700 label at 1.05rem.
+- **Style:** full-width bordered blocks with a leading key square (ink ground, yellow number, 1.7em square) + Space Grotesk 700 label at 1.05rem.
 - **States:** rest on paper with Resting shadow; hover translates 2px into a per-item signal color (cyan / green / red by position) with Pressed shadow; focus-visible gets the global 4px Wire Blue outline.
 - **Mobile:** row layout ≤900px, back to column ≤480px.
 
 ### Fact Tiles
 Bordered label/value blocks (min-width 10rem): Space Grotesk 700 dt label (.95rem, tracked) over a Space Grotesk 700 dd value (1.25rem). Grounds rotate yellow / blue / red, always with ink text. Entrance-stamped last in the hero sequence.
 
-### Skill Wall
-A wrapping flex wall of bordered Space Grotesk 700 tiles in three size tiers (priority encoded by size). Rest on paper with Resting shadow; hover sinks 2px and recolors to Sky Cyan.
+### Skill Bars (Chart Groups)
+Two labeled groups (WEB DEVELOPMENT / CYBERSECURITY): Space Grotesk 700 group headings carrying an inline chip (LEARNING on Alarm Red for the in-progress group), over rows of an `11rem | 1fr | 3rem` grid — right-aligned bar name, bordered track (4px ink, 2.2rem tall, paper ground, Resting shadow) holding a flat signal-color fill, and a bare Space Grotesk numeral. Fills animate width from 0 to `--level`% in `.7s steps(12)` when scrolled into view; rows still being learned carry a yellow-soft diagonal stripe fill instead of a solid field. Tracks expose `role="progressbar"` with `aria-valuenow`.
+
+### Tech Wall
+A wrapping flex row of small bordered Space Grotesk 700 tiles (.9rem, paper ground, Resting shadow). Hover sinks 2px and recolors to Sky Cyan.
 
 ### Footer
-Ink-ground block closing the page: Space Grotesk 700 wordmark line, inline uppercase nav links (paper text, yellow underline on hover), and a quiet system-font colophon. No marquee tickers — they were retired for a calmer, more professional close.
+Ink-ground block closing the page: Space Grotesk 700 wordmark line, inline uppercase nav links (paper text, yellow underline on hover), and a quiet system-font colophon.
 
 ### Theme Toggle
-A small bordered Silkscreen button in the rail footer beneath the status line, pairing a hand-drawn pixel moon/sun icon (`crispEdges`, `currentColor`) with a target-mode label ("DARK" while light, "LIGHT" while dark) — the label always announces what pressing does. Press states follow the standard press-in vocabulary (hover sinks 2px/3px shadow, active 4px/2px). Choice persists in localStorage under `caquanh-theme`; first visit follows `prefers-color-scheme`. An inline head script applies the saved theme before first paint to prevent flash, and the `theme-color` meta updates with each switch. Switching is instant — no cross-fade — per the mechanical-motion law.
+A small bordered Silkscreen button in the rail footer beneath the status line, pairing a hand-drawn pixel moon/sun icon (`crispEdges`, `currentColor`) with a target-mode label ("DARK" while light, "LIGHT" while dark) — the label always announces what pressing does. Press states follow the standard press-in vocabulary (hover sinks 2px/3px shadow, active 4px/2px). Choice persists in localStorage under `caquanh-theme`; first visit defaults to Light regardless of OS preference. An inline head script applies the saved theme before first paint to prevent flash, and the `theme-color` meta updates with each switch. Switching is instant — no cross-fade — per the mechanical-motion law.
+
+### Live Weather Strip
+A full-width strip under the about block, split by an internal 4px rule: a Sky Cyan icon panel on the left holding a hand-drawn crisp-edge pixel weather glyph (sun, moon, partly, cloudy, fog, rain, snow, storm — palette hexes only), and a data column on the right. The data column stacks a Space Grotesk 700 tracked uppercase station label ("LIVE WEATHER · HANOI") with a blinking green LED dot over a large temperature readout plus a small condition word. Data comes from Open-Meteo (client-side, no key), refreshed every 10 minutes; on failure the readout falls back to `--°C` / OFFLINE, the LED turns solid red, and the panel empties until the next cycle recovers.
 
 ### Signature: Segment Title Plate
 Ink-filled inline block holding Space Grotesk 700 section titles in paper-colored text, casting the double yellow-and-ink shadow, ending in a blinking yellow underscore cursor (blink 1.2s `steps(2)` infinite).
@@ -220,11 +231,11 @@ Ink-filled inline block holding Space Grotesk 700 section titles in paper-colore
 Selection is ink-on-yellow (`::selection`). Scrollbar is themed: 14px wide, paper track with an ink left border, ink thumb inset by a 3px paper border. Focus rings are 4px solid Wire Blue with 3px offset (`:focus-visible`). Smooth scrolling anchors throughout; disabled under reduced motion.
 
 ### Motion Grammar
-- **Marquee:** `scroll-x` translateX(−50%), 22s linear infinite.
+- **Bar fill:** width animates from 0 to `--level`% in `.7s steps(12)` once the track scrolls into view (IntersectionObserver, threshold .4).
 - **Entrance:** hero statement lines, intro, actions, and facts start hidden (opacity 0, translated 14px down) and stamp in via `stamp-in` (.38s `steps(4)` forwards) staggered .12–.6s after DOM load.
-- **Blink:** status dot (1.6s) and title cursor ticks (1.2s), both `steps(2)` — instant LED-style toggling, never faded.
+- **Blink:** status dot and weather LED (1.6s), title cursor ticks (1.2s), both `steps(2)` — instant LED-style toggling, never faded.
 - **Press interactions:** all hover/active transitions use `steps(2)` at .12–.15s.
-- **Reduced motion:** `prefers-reduced-motion: reduce` kills marquees, blinks, smooth scrolling, and forces entrance elements visible immediately.
+- **Reduced motion:** `prefers-reduced-motion: reduce` kills bar-fill transitions, blinks, smooth scrolling, and forces entrance elements visible immediately.
 
 ## Do's and Don'ts
 
@@ -234,7 +245,7 @@ Selection is ink-on-yellow (`::selection`). Scrollbar is themed: 14px wide, pape
 - **Do** animate with `steps()` easing; let entrances stamp, presses sink, and indicators blink discretely.
 - **Do** pair any colored field with ink text, and reserve yellow for what must be seen first.
 - **Do** draw all imagery as crisp-edge pixel SVG (`shape-rendering: crispEdges` + `image-rendering: pixelated`) on flat signal-color panels.
-- **Do** honor `prefers-reduced-motion`: stop tickers/blinks and reveal stamped content instantly.
+- **Do** honor `prefers-reduced-motion`: stop bar fills/blinks and reveal stamped content instantly.
 - **Do** label placeholder content visibly (the ink/yellow PLACEHOLDER chip pattern) until real projects replace it.
 
 ### Don't:
@@ -243,4 +254,4 @@ Selection is ink-on-yellow (`::selection`). Scrollbar is themed: 14px wide, pape
 - **Don't** introduce new accent colors; the palette is exactly paper, deep paper, ink, yellow, muted yellow, red, blue, green, cyan.
 - **Don't** set body paragraphs or long bilingual copy in a display face — Space Grotesk and Silkscreen are for short loud strings and chrome only.
 - **Don't** ease hover states smoothly or float elements upward on hover; interactions press *into* the page.
-- **Don't** center a conventional hero-plus-card-grid layout; the split rail + marquee desk structure is the identity.
+- **Don't** center a conventional hero-plus-card-grid layout; the split rail + broadcast desk structure is the identity.

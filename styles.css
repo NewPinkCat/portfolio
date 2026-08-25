@@ -448,7 +448,6 @@ body {
   font-weight: 700;
   font-size: .95rem;
   letter-spacing: .03em;
-  font-weight: 700;
   border: 3px solid var(--ink);
   background: var(--blue);
   padding: .18rem .6rem;
@@ -458,7 +457,6 @@ body {
 /* skills bar chart */
 
 .chart-group { margin-top: 3rem; max-width: 62rem; }
-.chart-group:first-of-type { margin-top: 3rem; }
 
 .chart-label {
   font-family: var(--font-head);
@@ -568,7 +566,6 @@ body.loaded .bar-fill { width: calc(var(--level, 0) * 1%); }
   border-radius: var(--radius-sm);
   transition: translate .12s steps(2), box-shadow .12s steps(2), background .12s;
 }
-.skill-lg { font-size: 1.35rem; background: var(--yellow-soft); }
 .skill { font-size: 1.05rem; }
 .skill-sm { font-size: .9rem; }
 .skill:hover { translate: 2px 2px; box-shadow: 3px 3px 0 var(--ink); background: var(--cyan); }
@@ -613,12 +610,6 @@ body.loaded .bar-fill { width: calc(var(--level, 0) * 1%); }
 }
 
 .contact-block { margin-top: 3rem; }
-.contact-hint {
-  font-family: var(--font-chip);
-  font-weight: 700;
-  font-size: .85rem;
-  margin-top: 1.25rem;
-}
 
 /* footer */
 

@@ -26,6 +26,7 @@ The portfolio itself is the proof of skill: a hand-built, distinctive experience
 ## Capabilities and Constraints
 
 - Static site: no server, no backend, no build pipeline required.
+- Live weather widget in About pulls current conditions for Hà Nội from Open-Meteo (client-side fetch, no API key, third-party dependency); degrades gracefully to an OFFLINE state when the request fails.
 - Owner name/branding to display: **CaQuAnh**.
 - Owner is currently studying **Cybersecurity** alongside web development; the skills surface must present it honestly as in-progress, not claimed mastery.
 - Projects: no real project content yet — placeholder projects are authored at full fidelity and clearly labeled as placeholders for the owner to replace.
