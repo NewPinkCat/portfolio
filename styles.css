@@ -178,6 +178,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .status-dot { animation: none; }
+  .wx-dot { animation: none; }
   .bar-fill { transition: none; }
   .hero-statement > span, .hero-sub, .hero-actions, .fact { opacity: 1 !important; transform: none !important; animation: none !important; }
 }
@@ -313,6 +314,72 @@ body {
 }
 
 .about-block p + p { margin-top: 1em; }
+
+/* live weather strip */
+
+.wx-strip {
+  max-width: 62rem;
+  margin-top: 1.75rem;
+  display: flex;
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow: hidden;
+}
+.wx-panel {
+  flex: 0 0 auto;
+  width: clamp(72px, 12vw, 104px);
+  display: grid;
+  place-items: center;
+  background: var(--cyan);
+  border-right: var(--border);
+}
+.wx-panel svg { width: 72%; aspect-ratio: 1; image-rendering: pixelated; }
+.wx-data {
+  min-width: 0;
+  padding: .85rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+.wx-label {
+  font-family: var(--font-chip);
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+.wx-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--green);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  animation: blink 1.6s steps(2) infinite;
+}
+.wx-strip.is-offline .wx-dot { background: var(--red); animation: none; }
+.wx-readout {
+  font-family: var(--font-head);
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+.wx-temp { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.1rem); line-height: 1; }
+.wx-cond {
+  font-size: .95rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+@media (max-width: 480px) {
+  .wx-panel { width: 64px; }
+  .wx-data { padding: .7rem .9rem; }
+}
 
 /* projects */
 
