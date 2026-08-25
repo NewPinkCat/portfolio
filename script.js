@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (e) {
       wxPanel.innerHTML = '';
       wxTemp.textContent = '--°C';
-      wxCond.textContent = 'WX OFFLINE';
+      wxCond.textContent = 'OFFLINE';
       wxStrip.classList.add('is-offline');
     }
   };
